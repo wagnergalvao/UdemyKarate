@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <karate.version>1.0.1</karate.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -19,34 +20,21 @@
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-core</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-apache -->
-        <dependency>
-            <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-apache</artifactId>
-            <version>0.9.6</version>
-            <scope>test</scope>
+            <version>${karate.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-junit4 -->
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-junit4</artifactId>
-            <version>1.0.1</version>
+            <version>${karate.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-    <build>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources/features</directory>
-                <excludes>
-                    <exclude>**/*java</exclude>
-                </excludes>
-            </testResource>
-        </testResources>
-    </build>
 </project>

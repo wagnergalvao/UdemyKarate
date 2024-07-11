@@ -39,3 +39,15 @@ Feature: Obter a lista de usuarios
     * print requestBody
     * assert responseType == 'json'
     * match response == '##(responseBody)'
+
+  @regressive @acceptance @development @users
+  Scenario: Alterar dados do usuario
+    When path '/users/' + randomId
+    And def requestBody = read('schemas/UserPOSTRequestBody.json')
+    And def responseBody = read('schemas/UserPUTResponseBody.json')
+    And method PUT
+    Then assert responseStatus == 200
+    * print requestBody
+    * assert responseType == 'json'
+    * match response == '##(responseBody)'
+    * print response
